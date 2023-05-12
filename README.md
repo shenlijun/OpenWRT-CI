@@ -1,4 +1,4 @@
-# OpenWRT-CI
+# [源自VIKINGYFY的OpenWRT-CI](https://github.com/VIKINGYFY/OpenWRT-CI)
 自用云编译OpenWRT固件
 
 [Lean的固件](https://github.com/coolsnowwolf/lede)，仅包含[ssrp](https://github.com/fw876/helloworld)、turboacc 以及 uugamebooster。
