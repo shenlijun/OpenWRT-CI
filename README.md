@@ -1,8 +1,7 @@
 # OpenWRT-CI
-云编译OpenWRT固件
+自用云编译OpenWRT固件
 
-LEDE源码：
-https://github.com/coolsnowwolf/lede
+[Lean的固件](https://github.com/coolsnowwolf/lede)，仅包含[ssrp](https://github.com/fw876/helloworld)、turboacc 以及 uugamebooster。
 
 # 固件简要说明：
 
