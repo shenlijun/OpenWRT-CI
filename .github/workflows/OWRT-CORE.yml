@@ -5,32 +5,12 @@ on:
   #公用核心标识
   workflow_call:
     inputs:
-      OWRT_TARGET:
-        required: true
-        type: string
-      OWRT_THEME:
-        required: true
-        type: string
-      OWRT_NAME:
-        required: true
-        type: string
-      OWRT_URL:
-        required: true
-        type: string
-      OWRT_PW:
-        required: true
-        type: string
-      OWRT_IP:
+      OWRT_CONFIG:
         required: true
         type: string
 env:
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  OWRT_TARGET: ${{inputs.OWRT_TARGET}}
-  OWRT_THEME: ${{inputs.OWRT_THEME}}
-  OWRT_NAME: ${{inputs.OWRT_NAME}}
-  OWRT_URL: ${{inputs.OWRT_URL}}
-  OWRT_PW: ${{inputs.OWRT_PW}}
-  OWRT_IP: ${{inputs.OWRT_IP}}
+  OWRT_CONFIG: ${{inputs.OWRT_CONFIG}}
 
 jobs:
   owrt_core:
@@ -58,15 +38,9 @@ jobs:
       - name: Initialization Values
         run: |
           export OWRT_DATE=$(TZ=UTC-8 date +"%y.%m.%d_%H.%M.%S")
-          export OWRT_SOURCE=$(echo $OWRT_URL | cut -d '/' -f 5)
-          export OWRT_TYPE=$(sed -n "1{s/^#//;s/\r$//;p;q}" $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt)
 
-          echo "OWRT_SOURCE=$OWRT_SOURCE" >> $GITHUB_ENV
-          echo "OWRT_TARGET=$OWRT_TARGET" >> $GITHUB_ENV
           echo "OWRT_DATE=$OWRT_DATE" >> $GITHUB_ENV
-          echo "OWRT_TYPE=$OWRT_TYPE" >> $GITHUB_ENV
-          echo "OWRT_PW=$OWRT_PW" >> $GITHUB_ENV
-          echo "OWRT_IP=$OWRT_IP" >> $GITHUB_ENV
+          echo "OWRT_CONFIG=$OWRT_CONFIG" >> $GITHUB_ENV
 
       - name: Check Scripts
         run: |
@@ -77,7 +51,13 @@ jobs:
 
       - name: Clone OWRT Code
         run: |
-          git clone --depth=1 --single-branch $OWRT_URL ./owrt
+          git clone --depth=1 --single-branch https://github.com/coolsnowwolf/lede.git ./owrt
+          
+      - name: Extra Packages
+        run: |
+          cd ./owrt
+
+          $GITHUB_WORKSPACE/Scripts/Extras.sh
 
       - name: Update Feeds
         run: |
@@ -86,24 +66,14 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
-      - name: Custom Scripts
-        run: |
-          cd ./owrt
-
-          $GITHUB_WORKSPACE/Scripts/Settings.sh
-
-          cd ./package
-
-          $GITHUB_WORKSPACE/Scripts/Plugins.sh
-
       - name: Custom Settings
         run: |
           cd ./owrt
 
           rm -rf ./tmp* ./.config*
-          cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt >> .config
+          cat $GITHUB_WORKSPACE/Config/$OWRT_CONFIG.txt >> .config
 
-          $GITHUB_WORKSPACE/Scripts/Extras.sh
+          $GITHUB_WORKSPACE/Scripts/Settings.sh
 
           make defconfig
 
@@ -137,27 +107,14 @@ jobs:
 
           rm -rf $(find ./bin/targets/ -iregex ".*\(json\|manifest\|buildinfo\|sha256sums\|packages\)$")
           cp -rf $(find ./bin/targets/ -type f -iname "*.*") ./upload/
-          cp -rf ./.config ./upload/Config_"$OWRT_TARGET"_"$OWRT_SOURCE"_"$OWRT_DATE".txt
-
-          cd ./upload
-
-          $GITHUB_WORKSPACE/Scripts/Renames.sh
 
       - name: Release Firmware
         uses: softprops/action-gh-release@master
         with:
-          tag_name: ${{env.OWRT_TARGET}}_${{env.OWRT_SOURCE}}_${{env.OWRT_DATE}}
+          tag_name: ${{env.OWRT_CONFIG}}_${{env.OWRT_DATE}}
           files: ./owrt/upload/*.*
           body: |
-            这是个平台固件包，内含多个设备！
-            请注意选择你需要的设备固件！
-            不要问，更就完事了！
-
-            源码：${{env.OWRT_SOURCE}}
-            平台：${{env.OWRT_TARGET}}
-            设备：${{env.OWRT_TYPE}}
-            密码：${{env.OWRT_PW}}
-            地址：${{env.OWRT_IP}}
+            设备：${{env.OWRT_CONFIG}}
 
       - name: Delete Old Releases
         uses: dev-drprasad/delete-older-releases@master
