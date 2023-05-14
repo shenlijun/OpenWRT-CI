@@ -111,8 +111,8 @@ jobs:
       - name: Release Firmware
         uses: softprops/action-gh-release@master
         with:
-          #tag_name: ${{env.OWRT_CONFIG}}_${{env.OWRT_DATE}}
-          tag_name: $(TZ=UTC-8 date +"%y.%m.%d)
+          name: $(TZ=UTC-8 date +"%y.%m.%d)
+          tag_name: ${{env.OWRT_CONFIG}}_${{env.OWRT_DATE}}
           files: ./owrt/upload/*.*
           body: |
             设备：${{env.OWRT_CONFIG}}
