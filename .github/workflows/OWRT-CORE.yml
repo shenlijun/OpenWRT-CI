@@ -37,11 +37,9 @@ jobs:
 
       - name: Initialization Values
         run: |
-          export OWRT_DATE=$(TZ=UTC-8 date +"%y.%m.%d_%H.%M.%S")
-          export OWRT_DATE_LESS=$(TZ=UTC-8 date +"%y.%m.%d")
+          export OWRT_DATE=$(TZ=UTC-8 date +"%y.%m.%d")
 
           echo "OWRT_DATE=$OWRT_DATE" >> $GITHUB_ENV
-          echo "OWRT_DATE_LESS=$OWRT_DATE_LESS" >> $GITHUB_ENV
           echo "OWRT_CONFIG=$OWRT_CONFIG" >> $GITHUB_ENV
 
       - name: Check Scripts
@@ -113,8 +111,7 @@ jobs:
       - name: Release Firmware
         uses: softprops/action-gh-release@master
         with:
-          tag_name: ${{env.OWRT_DATE_LESS}}
-          #tag_name: ${{env.OWRT_CONFIG}}_${{env.OWRT_DATE}}
+          tag_name: ${{env.OWRT_DAT}}
           files: ./owrt/upload/*.*
           body: |
             设备：${{env.OWRT_CONFIG}}
