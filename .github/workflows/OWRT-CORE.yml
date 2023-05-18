@@ -113,8 +113,8 @@ jobs:
         with:
           tag_name: ${{env.OWRT_DATE}}
           files: ./owrt/upload/*.*
-          append_body: |
-            设备：${{env.OWRT_CONFIG}}
+        body: |
+            设备：x64、MT1300
 
       - name: Delete Old Releases
         uses: dev-drprasad/delete-older-releases@master
