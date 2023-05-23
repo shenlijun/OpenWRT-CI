@@ -3,7 +3,7 @@
 
 仅包含[ssrp](https://github.com/fw876/helloworld)、turboacc 以及 uugamebooster。
 
-[支持Intel x550自动协商2.5G/5G速率](https://github.com/shenlijun/openwrt-x550-nbase-t)
+[支持Intel x550自动协商2.5G&5G速率](https://github.com/shenlijun/openwrt-x550-nbase-t)
 
 # 固件简要说明：
 
