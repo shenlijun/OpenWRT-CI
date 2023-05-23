@@ -1,7 +1,7 @@
 # [源自VIKINGYFY的OpenWRT-CI](https://github.com/VIKINGYFY/OpenWRT-CI)
-自用云编译OpenWRT固件
+自用云编译[Lean固件](https://github.com/coolsnowwolf/lede)
 
-[Lean固件](https://github.com/coolsnowwolf/lede)，仅包含[ssrp](https://github.com/fw876/helloworld)、turboacc 以及 uugamebooster。
+仅包含[ssrp](https://github.com/fw876/helloworld)、turboacc 以及 uugamebooster。
 
 [支持Intel x550自动协商2.5G/5G速率](https://github.com/shenlijun/openwrt-x550-nbase-t)
 
