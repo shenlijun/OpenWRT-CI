@@ -5,6 +5,8 @@
 
 [支持Intel x550自动协商2.5G&5G速率](https://github.com/shenlijun/openwrt-x550-nbase-t)
 
+## PVE8.0上需要更正分区表才能使用，否则报错无法读取硬盘
+
 # 固件简要说明：
 
 固件每天早上4点自动编译，X64与MT1300两种
