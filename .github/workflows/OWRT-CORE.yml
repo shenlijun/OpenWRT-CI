@@ -23,6 +23,7 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
+          sudo apt install curl
           docker rmi $(docker images -q)
           #sudo -E rm -rf $(cat $GITHUB_WORKSPACE/Depends.txt | sed -n "1{s/\r$//;p;q}")
           #sudo -E apt -yqq update
