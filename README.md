@@ -5,7 +5,7 @@
 
 [支持Intel x550自动协商2.5G&5G速率](https://github.com/shenlijun/openwrt-x550-nbase-t)
 
-#### PVE8.0上EFI固件需要关闭安全启动
+#### PVE8.0以上使用EFI固件需要关闭安全启动
 
 ![image](https://github.com/shenlijun/OpenWRT-CI/blob/main/PVE.png)
 
