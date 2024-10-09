@@ -2262,7 +2262,7 @@ CONFIG_PACKAGE_wireless-regdb=y
 # CONFIG_PACKAGE_kmod-nbd is not set
 # CONFIG_PACKAGE_kmod-nvme is not set
 # CONFIG_PACKAGE_kmod-scsi-cdrom is not set
-# CONFIG_PACKAGE_kmod-scsi-core is not set
+CONFIG_PACKAGE_kmod-scsi-core=y
 # CONFIG_PACKAGE_kmod-scsi-generic is not set
 # CONFIG_PACKAGE_kmod-scsi-tape is not set
 # end of Block Devices
@@ -3015,7 +3015,7 @@ CONFIG_PACKAGE_kmod-usb-net-rndis=y
 # CONFIG_PACKAGE_kmod-usb-serial-simple is not set
 # CONFIG_PACKAGE_kmod-usb-serial-ti-usb is not set
 # CONFIG_PACKAGE_kmod-usb-serial-visor is not set
-# CONFIG_PACKAGE_kmod-usb-storage is not set
+CONFIG_PACKAGE_kmod-usb-storage=y
 # CONFIG_PACKAGE_kmod-usb-storage-extras is not set
 # CONFIG_PACKAGE_kmod-usb-storage-uas is not set
 # CONFIG_PACKAGE_kmod-usb-uhci is not set
