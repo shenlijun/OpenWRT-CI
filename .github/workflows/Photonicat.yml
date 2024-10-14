@@ -1,0 +1,20 @@
+#CI项目名
+name: Photonicat
+
+on:
+  #自动编译：每天早上4点
+  schedule:
+    - cron: 0 20 * * *
+  #手动编译
+  workflow_dispatch:
+
+#CI权限
+permissions: write-all
+
+#CI任务
+jobs:
+  owrt_config:
+    #调用公用编译核心OWRT-CORE.yml
+    uses: ./.github/workflows/OWRT-CORE.yml
+    with:
+      OWRT_CONFIG: Photonicat
