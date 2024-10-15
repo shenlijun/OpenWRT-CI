@@ -2,9 +2,9 @@
 name: A1300
 
 on:
-  #自动编译：每天早上4点
+  #自动编译：每天0点
   schedule:
-    - cron: 0 20 * * *
+    - cron: 0 16 * * *
   #手动编译
   workflow_dispatch:
 
