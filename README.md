@@ -3,7 +3,7 @@
 
 仅包含[homeproxy](https://github.com/immortalwrt/homeproxy)。
 
-#### PVE8.0以上使用EFI固件需要关闭安全启动
+#### PVE8.0以上使用EFI，需要关闭安全启动，且磁盘镜像不能放在zfs上
 
 ![image](https://github.com/shenlijun/OpenWRT-CI/blob/main/PVE.png)
 
