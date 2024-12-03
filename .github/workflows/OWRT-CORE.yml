@@ -42,7 +42,7 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          docker rmi $(docker images -q)
+          #docker rmi $(docker images -q)    
           sudo -E apt -yqq update            
           sudo -E apt -yqq full-upgrade
           sudo -E apt -yqq install $(sed -n "1{s/\r$//g;p;q}" $GITHUB_WORKSPACE/Depends.txt)
