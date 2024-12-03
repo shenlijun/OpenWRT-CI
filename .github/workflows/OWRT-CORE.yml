@@ -42,10 +42,9 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          #docker rmi $(docker images -q)    
           sudo -E apt -yqq update            
           sudo -E apt -yqq full-upgrade
-          sudo -E apt -yqq install $(sed -n "1{s/\r$//g;p;q}" $GITHUB_WORKSPACE/Depends.txt)
+          sudo bash -c 'bash <(curl -s https://build-scripts.immortalwrt.org/init_build_environment.sh)'
           sudo -E apt -yqq install dos2unix
           sudo -E apt -yqq autoremove --purge
           sudo -E apt -yqq autoclean
@@ -69,7 +68,6 @@ jobs:
 
       - name: Clone OWRT Code
         run: |
-          #git clone --depth=1 --single-branch https://github.com/coolsnowwolf/lede.git ./owrt
            git clone -b openwrt-23.05 --single-branch --filter=blob:none https://github.com/immortalwrt/immortalwrt ./owrt
            
       - name: Extra Packages
