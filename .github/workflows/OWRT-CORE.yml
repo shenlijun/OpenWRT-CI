@@ -127,7 +127,7 @@ jobs:
           cp -rf $(find ./bin/targets/ -type f -iname "*.*") ./upload/
 
       - name: Release Firmware
-        uses: softprops/action-gh-release@master
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{env.OWRT_DATE}}
           files: ./owrt/upload/*.*
