@@ -1,7 +1,7 @@
 # [源自VIKINGYFY的OpenWRT-CI](https://github.com/VIKINGYFY/OpenWRT-CI)
 自用云编译[ImmortalWrt固件](https://github.com/immortalwrt/immortalwrt)
 
-仅包含[homeproxy](https://github.com/immortalwrt/homeproxy)。
+仅包含[passwall](https://github.com/xiaorouji/openwrt-passwall))。
 
 #### PVE8.0以上使用EFI，需要关闭安全启动，且磁盘镜像不能放在zfs上
 
