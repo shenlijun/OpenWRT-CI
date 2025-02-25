@@ -14,7 +14,7 @@ env:
 
 jobs:
   owrt_core:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout Projects
         uses: actions/checkout@main
@@ -69,7 +69,7 @@ jobs:
 
       - name: Clone OWRT Code
         run: |
-           git clone -b openwrt-23.05 --single-branch --filter=blob:none https://github.com/immortalwrt/immortalwrt ./owrt
+           git clone -b openwrt-24.10 --single-branch --filter=blob:none https://github.com/immortalwrt/immortalwrt ./owrt
            
       - name: Extra Packages
         run: |
