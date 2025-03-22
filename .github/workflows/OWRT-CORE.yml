@@ -14,7 +14,7 @@ env:
 
 jobs:
   owrt_core:
-    runs-on: 	ubuntu-24.04
+    runs-on: 	ubuntu-22.04
     steps:
       - name: Checkout Projects
         uses: actions/checkout@main
