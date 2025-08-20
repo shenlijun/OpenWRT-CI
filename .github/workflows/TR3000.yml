@@ -1,10 +1,10 @@
 #CI项目名
-name: A1300
+name: TR3000
 
 on:
-  #自动编译：每天0点
+  #自动编译：每天6点
   schedule:
-    - cron: 0 16 * * *
+    - cron: 0 22 * * *
   #手动编译
   workflow_dispatch:
 
