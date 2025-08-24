@@ -88,6 +88,11 @@ jobs:
           cd ./owrt/feeds/packages/net
           wget -O - https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz | tar xz --strip=2 "packages-master/net/xray-core"
 
+      - name: Update Go
+        run: |
+          cd ./owrt/feeds/packages/lang
+          wget -O - https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz | tar xz --strip=2 "packages-master/lang/golang"
+          
       - name: Custom Settings
         run: |
           cd ./owrt
