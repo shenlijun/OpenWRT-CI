@@ -83,6 +83,11 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
+      - name: Update Xray
+        run: |
+          cd ./owrt/feeds/packages/net
+          wget -O - https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz | tar xz --strip=2 "packages-master/net/xray-core"
+
       - name: Custom Settings
         run: |
           cd ./owrt
