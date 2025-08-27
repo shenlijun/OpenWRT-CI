@@ -141,7 +141,7 @@ jobs:
           tag_name: ${{env.OWRT_DATE}}
           files: ./owrt/upload/*.*
           body: |
-            设备：x64、MT1300
+            设备：A1300、TR3000、MT1300、Photonicat、x64
 
       - name: Delete Old Releases
         uses: dev-drprasad/delete-older-releases@master
