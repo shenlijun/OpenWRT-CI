@@ -7,10 +7,6 @@
 
 ![image](https://github.com/shenlijun/OpenWRT-CI/blob/main/PVE.png)
 
-# 固件简要说明：
-
-固件每天早上4点自动编译
-
 # 目录简要说明：
 
 Depends.txt——环境依赖列表
