@@ -117,7 +117,7 @@ jobs:
         run: |
           cd ./owrt
 
-          make -j$(nproc) || make -j$(nproc) V=s
+          make -j$(nproc) || make -j1 V=s
 
           echo "======================="
           df -h
