@@ -81,7 +81,7 @@ jobs:
 
           $GITHUB_WORKSPACE/Scripts/Settings.sh
 
-          make defconfig
+          make defconfig -j$(nproc) && make clean -j$(nproc)
 
       - name: Cleanup Toolchain
         run: |
