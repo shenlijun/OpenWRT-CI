@@ -51,6 +51,7 @@ jobs:
           sudo bash -c 'bash <(curl -sL https://build-scripts.immortalwrt.org/init_build_environment.sh)'
           sudo -E systemctl daemon-reload
           sudo -E timedatectl set-timezone "Asia/Shanghai"
+          sudo rm -rf /etc/apt/sources.list.d*
 
       - name: Initialization Values
         run: |
