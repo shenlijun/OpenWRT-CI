@@ -8,5 +8,5 @@
 
 # Modify default theme
 sed -i 's/bootstrap/argon/' feeds/luci/modules/luci-base/root/etc/config/luci
-#sed -i 's/bootstrap/argon/' feeds/luci/collections/luci/Makefile
+sed -i 's/bootstrap/argon/' feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/argon/' feeds/luci/collections/luci-light/Makefile
