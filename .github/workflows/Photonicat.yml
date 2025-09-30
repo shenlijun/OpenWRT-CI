@@ -15,6 +15,6 @@ permissions: write-all
 jobs:
   owrt_config:
     #调用公用编译核心OWRT-CORE.yml
-    uses: ./.github/workflows/OWRT-CORE.yml
+    uses: ./.github/workflows/LEDE-CORE.yml
     with:
       OWRT_CONFIG: Photonicat
