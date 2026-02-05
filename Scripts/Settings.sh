@@ -14,6 +14,7 @@ sed -i 's/bootstrap/argon/' feeds/luci/collections/luci-light/Makefile
 
 ##Contents from the master branch
 wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
+
 #Rust
 tar -xzf master.tar.gz -C feeds/packages/lang/ --strip=2 "packages-master/lang/rust"
 
