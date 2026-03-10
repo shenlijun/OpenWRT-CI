@@ -17,6 +17,7 @@ wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
 
 #Rust
 #tar -xzf master.tar.gz -C feeds/packages/lang/ --strip=2 "packages-master/lang/rust"
+sed -i 's/ci-llvm=true/ci-llvm=false/g' feeds/packages/lang/rust/Makefile
 
 #Xray
 tar -xzf master.tar.gz -C feeds/packages/net/ --strip=2 "packages-master/net/xray-core"
