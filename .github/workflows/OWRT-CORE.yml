@@ -121,6 +121,7 @@ jobs:
           cd ./owrt && mkdir ./upload
 
           rm -rf $(find ./bin/targets/ -iregex ".*\(json\|manifest\|buildinfo\|sha256sums\|packages\)$")
+          rm -rf $(find ./bin/targets/ -type f \( -name "*initramfs*" -o -name "*factory*" -o -name "*rootfs*" \))
           cp -rf $(find ./bin/targets/ -type f -iname "*squashfs*") ./upload/
 
       - name: Release Firmware
