@@ -4,7 +4,7 @@ name: MT1300
 on:
   #自动编译：每天1点半 
   schedule:
-    - cron: 0 17 * * *
+    - cron: 0 16 * * *
   #手动编译
   workflow_dispatch:
 
