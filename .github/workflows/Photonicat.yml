@@ -2,7 +2,7 @@
 name: Photonicat
 
 on:
-  #自动编译：每天3点
+  #自动编译：每天0点
   schedule:
     - cron: 0 16 * * *
   #手动编译
