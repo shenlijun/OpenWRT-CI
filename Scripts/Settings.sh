@@ -21,8 +21,8 @@ git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-
 ##End of Openwrt-Passwall
 
 ##mosdns
-rm -rf ./feeds/packages/net/mosdns
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+#rm -rf ./feeds/packages/net/mosdns
+#git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 ## End of mosdns
 
 ##Contents from the master branch
