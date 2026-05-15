@@ -1,4 +1,4 @@
-# [源自VIKINGYFY的OpenWRT-CI](https://github.com/VIKINGYFY/OpenWRT-CI)
+# 源自[VIKINGYFY的OpenWRT-CI](https://github.com/VIKINGYFY/OpenWRT-CI)
 自用云编译[ImmortalWrt固件](https://github.com/immortalwrt/immortalwrt)
 
 仅包含[Passwall](https://github.com/Openwrt-Passwall/openwrt-passwall)。
