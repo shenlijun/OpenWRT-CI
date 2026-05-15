@@ -130,7 +130,7 @@ jobs:
           tag_name: ${{env.OWRT_DATE}}
           files: ./owrt/upload/*.*
           body: |
-            设备：A1300、TR3000、MT1300、Photonicat、x64
+            设备：TR3000、x64
 
       - name: Delete old Releases and Workflows
         uses: ophub/delete-releases-workflows@main
