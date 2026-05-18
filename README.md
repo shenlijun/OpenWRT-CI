@@ -1,7 +1,7 @@
 # 源自[VIKINGYFY的OpenWRT-CI](https://github.com/VIKINGYFY/OpenWRT-CI)
 自用云编译[ImmortalWrt固件](https://github.com/immortalwrt/immortalwrt)
 
-仅包含:Passwall插件，DNS选用MosDNS。
+仅包含Passwall插件，DNS选用MosDNS。
 
 #### PVE8.0以上使用EFI，需要关闭安全启动，且磁盘镜像不能放在zfs上，在zfs上不能使用EFI
 
