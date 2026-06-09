@@ -85,10 +85,11 @@ jobs:
         run: |
           cd ./owrt
 
+          $GITHUB_WORKSPACE/Scripts/Settings.sh
+          
           rm -rf ./tmp* ./.config*
           cat $GITHUB_WORKSPACE/Config/$OWRT_CONFIG.txt >> .config
 
-          $GITHUB_WORKSPACE/Scripts/Settings.sh
 
           make defconfig -j$(nproc) && make clean -j$(nproc)
 
