@@ -42,7 +42,7 @@ sed -i 's/ci-llvm=true/ci-llvm=false/g' feeds/packages/lang/rust/Makefile
 
 rm -rf target/linux
 wget https://github.com/immortalwrt/immortalwrt/archive/refs/heads/master.tar.gz
-tar -xzf master.tar.gz -C target/ --strip=2 "packages-master/target/linux"
+tar -xzf master.tar.gz -C target/ --strip=2 "immortalwrt-master/target/linux"
 
 #rm master.tar.gz
 
