@@ -39,4 +39,11 @@ sed -i 's/ci-llvm=true/ci-llvm=false/g' feeds/packages/lang/rust/Makefile
 #sed -i 's/^PKG_HASH.*/PKG_HASH:=992a4997e6bb846d11469435d687f99ef812fcde1e0a009bb8e95189ea20331d/' feeds/packages/net/xray-core/Makefile
 
 #rm master.tar.gz
+
+rm -rf target/linux
+wget https://github.com/immortalwrt/immortalwrt/archive/refs/heads/master.tar.gz
+tar -xzf master.tar.gz -C target/ --strip=2 "packages-master/target/linux"
+
+#rm master.tar.gz
+
 ##End of contents from the master branch
