@@ -25,7 +25,7 @@ rm -rf ./feeds/packages/net/mosdns
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 ## End of mosdns
 
-##Contents from the master branch
+##packages from the master branch
 #wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
 
 #Rust
@@ -40,10 +40,12 @@ sed -i 's/ci-llvm=true/ci-llvm=false/g' feeds/packages/lang/rust/Makefile
 
 #rm master.tar.gz
 
-rm -rf target/linux
-wget https://github.com/immortalwrt/immortalwrt/archive/refs/heads/master.tar.gz
-tar -xzf master.tar.gz -C target/ --strip=2 "immortalwrt-master/target/linux"
+##End of packages from the master branch
 
+##kernel from the master branch
+wget https://github.com/immortalwrt/immortalwrt/archive/refs/heads/master.tar.gz
+rm -rf target/linux
+tar -xzf master.tar.gz -C target/ --strip=2 "immortalwrt-master/target/linux"
 #rm master.tar.gz
 
-##End of contents from the master branch
+##End of kernel from the master branch
