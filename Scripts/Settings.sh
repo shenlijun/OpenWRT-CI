@@ -26,16 +26,16 @@ git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 ## End of mosdns
 
 ##packages from the master branch
-wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
+#wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
 
 #Rust
 #tar -xzf master.tar.gz -C feeds/packages/lang/ --strip=2 "packages-master/lang/rust"
-sed -i 's/ci-llvm=true/ci-llvm=false/g' feeds/packages/lang/rust/Makefile
+#sed -i 's/ci-llvm=true/ci-llvm=false/g' feeds/packages/lang/rust/Makefile
 
 #Xray
 #tar -xzf master.tar.gz -C feeds/packages/net/ --strip=2 "packages-master/net/xray-core"
-rm -rf ./feeds/packages/lang/golang
-tar -xzf master.tar.gz -C feeds/packages/lang/ --strip=2 "packages-master/lang/golang"
+#rm -rf ./feeds/packages/lang/golang
+#tar -xzf master.tar.gz -C feeds/packages/lang/ --strip=2 "packages-master/lang/golang"
 #sed -i 's/^PKG_VERSION.*/PKG_VERSION:=26.3.27/' feeds/packages/net/xray-core/Makefile
 #sed -i 's/^PKG_HASH.*/PKG_HASH:=992a4997e6bb846d11469435d687f99ef812fcde1e0a009bb8e95189ea20331d/' feeds/packages/net/xray-core/Makefile
 ##End of packages from the master branch
