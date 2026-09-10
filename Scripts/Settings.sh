@@ -26,7 +26,7 @@ git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 ## End of mosdns
 
 ##packages from the master branch
-#wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
+wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
 
 #Rust
 #tar -xzf master.tar.gz -C feeds/packages/lang/ --strip=2 "packages-master/lang/rust"
