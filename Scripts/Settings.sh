@@ -23,8 +23,6 @@ git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-
 ##mosdns
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 27.x feeds/packages/lang/golang
-rm -rf ./feeds/packages/net/mosdns
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
