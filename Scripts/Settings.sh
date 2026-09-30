@@ -47,10 +47,10 @@ rm master.tar.gz
 ##End of packages from the master branch
 
 ##kernel from the master branch
-wget https://github.com/immortalwrt/immortalwrt/archive/refs/heads/master.tar.gz
-rm -rf target
-tar -xzf master.tar.gz -C ./ --strip=1 "immortalwrt-master/target"
-rm master.tar.gz
+#wget https://github.com/immortalwrt/immortalwrt/archive/refs/heads/master.tar.gz
+#rm -rf target
+#tar -xzf master.tar.gz -C ./ --strip=1 "immortalwrt-master/target"
+#rm master.tar.gz
 ##End of kernel from the master branch
 
 #mkdir -p staging_dir/host/bin
