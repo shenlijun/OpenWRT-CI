@@ -49,7 +49,7 @@ rm master.tar.gz
 ##kernel from the master branch
 wget https://github.com/immortalwrt/immortalwrt/archive/refs/heads/master.tar.gz
 rm -rf target
-tar -xzf master.tar.gz -C ./ --strip=1 "packages-master/target"
+tar -xzf master.tar.gz -C ./ --strip=1 "immortalwrt-master/target"
 rm master.tar.gz
 ##End of kernel from the master branch
 
