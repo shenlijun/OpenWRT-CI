@@ -43,6 +43,10 @@ wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
 #sed -i 's/^PKG_VERSION.*/PKG_VERSION:=26.3.27/' feeds/packages/net/xray-core/Makefile
 #sed -i 's/^PKG_HASH.*/PKG_HASH:=992a4997e6bb846d11469435d687f99ef812fcde1e0a009bb8e95189ea20331d/' feeds/packages/net/xray-core/Makefile
 
+#OpenVPN
+rm -rf ./feeds/packages/net/openvpn
+tar -xzf master.tar.gz -C feeds/packages/net/ --strip=2 "packages-master/net/openvpn"
+
 rm master.tar.gz
 ##End of packages from the master branch
 
