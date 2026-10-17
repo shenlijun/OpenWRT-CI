@@ -4,7 +4,7 @@ name: TR3000
 on:
   #自动编译：每天0点
   schedule:
-    - cron: 23 18 * * *
+    - cron: 26 19 * * *
   #手动编译
   workflow_dispatch:
 
