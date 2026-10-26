@@ -20,14 +20,10 @@ rm -rf feeds/luci/applications/luci-app-passwall
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
 ##End of Openwrt-Passwall
 
-##mosdns
+##golang
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 27.x feeds/packages/lang/golang
-find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
-find ./ | grep Makefile | grep mosdns | xargs rm -f
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
-## End of mosdns
+git clone https://github.com/kenzok8/golang -b 1.27 feeds/packages/lang/golang
+## End of golang
 
 ##packages from the master branch
 wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
