@@ -25,6 +25,14 @@ rm -rf feeds/packages/lang/golang
 git clone https://github.com/kenzok8/golang -b 1.27 feeds/packages/lang/golang
 ## End of golang
 
+##dae
+rm -rf feeds/luci/applications/luci-app-dae
+rm -rf feeds/packages/net/dae
+rm -rf feeds/packages/net/daed
+git clone https://github.com/daeuniverse/openwrt-packages package/dae-packages
+git clone --recurse-submodules https://github.com/daeuniverse/dae package/dae-packages/dae/src
+##End of dae
+
 ##packages from the master branch
 wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
 
