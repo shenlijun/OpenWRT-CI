@@ -393,7 +393,9 @@ CONFIG_KERNEL_PRINTK=y
 CONFIG_KERNEL_SWAP=y
 # CONFIG_KERNEL_PROC_STRIPPED is not set
 CONFIG_KERNEL_DEBUG_FS=y
-# CONFIG_KERNEL_PERF_EVENTS is not set
+CONFIG_KERNEL_ARM_PMU=y
+CONFIG_KERNEL_ARM_PMUV3=y
+CONFIG_KERNEL_PERF_EVENTS=y
 # CONFIG_KERNEL_PROFILING is not set
 # CONFIG_KERNEL_UBSAN is not set
 # CONFIG_KERNEL_KASAN is not set
@@ -401,17 +403,29 @@ CONFIG_KERNEL_DEBUG_FS=y
 # CONFIG_KERNEL_TASKSTATS is not set
 # CONFIG_KERNEL_PSI is not set
 CONFIG_KERNEL_KALLSYMS=y
-# CONFIG_KERNEL_FTRACE is not set
+CONFIG_KERNEL_FTRACE=y
+# CONFIG_KERNEL_FTRACE_SYSCALLS is not set
+# CONFIG_KERNEL_ENABLE_DEFAULT_TRACERS is not set
+# CONFIG_KERNEL_FUNCTION_TRACER is not set
+# CONFIG_KERNEL_IRQSOFF_TRACER is not set
+# CONFIG_KERNEL_PREEMPT_TRACER is not set
+# CONFIG_KERNEL_HIST_TRIGGERS is not set
 CONFIG_KERNEL_DEBUG_KERNEL=y
 CONFIG_KERNEL_DEBUG_INFO=y
-CONFIG_KERNEL_DEBUG_INFO_REDUCED=y
+CONFIG_KERNEL_DEBUG_INFO_BTF=y
+CONFIG_KERNEL_DEBUG_INFO_BTF_MODULES=y
+CONFIG_KERNEL_MODULE_ALLOW_BTF_MISMATCH=y
+# CONFIG_KERNEL_DEBUG_INFO_REDUCED is not set
 CONFIG_KERNEL_FRAME_WARN=2048
 # CONFIG_KERNEL_DEBUG_VIRTUAL is not set
 # CONFIG_KERNEL_DYNAMIC_DEBUG is not set
-# CONFIG_KERNEL_KPROBES is not set
-# CONFIG_KERNEL_BPF_EVENTS is not set
+CONFIG_KERNEL_KPROBES=y
+CONFIG_KERNEL_KPROBE_EVENTS=y
+CONFIG_KERNEL_BPF_EVENTS=y
+# CONFIG_KERNEL_PROBE_EVENTS_BTF_ARGS is not set
+# CONFIG_KERNEL_BPF_KPROBE_OVERRIDE is not set
 # CONFIG_KERNEL_BPF_STREAM_PARSER is not set
-# CONFIG_KERNEL_NETKIT is not set
+CONFIG_KERNEL_NETKIT=y
 CONFIG_KERNEL_AIO=y
 CONFIG_KERNEL_IO_URING=y
 CONFIG_KERNEL_FHANDLE=y
@@ -609,6 +623,7 @@ CONFIG_BUILD_LOG_DIR=""
 CONFIG_EXTRA_OPTIMIZATION="-fno-caller-saves -fno-plt"
 CONFIG_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a53"
 CONFIG_EXTRA_BINUTILS_CONFIG_OPTIONS=""
+CONFIG_DWARVES=y
 CONFIG_EXTRA_GCC_CONFIG_OPTIONS=""
 CONFIG_MUSL_DISABLE_CRYPT_SIZE_HACK=y
 CONFIG_GDB=y
@@ -2081,6 +2096,7 @@ CONFIG_PACKAGE_trusted-firmware-a-mt7988-ram-ddr4=y
 # CONFIG_PACKAGE_gdbserver is not set
 # CONFIG_PACKAGE_go-rice is not set
 # CONFIG_PACKAGE_gperf is not set
+# CONFIG_PACKAGE_kselftests-bpf is not set
 # CONFIG_PACKAGE_ledhwbmon is not set
 # CONFIG_PACKAGE_ledumon is not set
 # CONFIG_PACKAGE_libtool-bin is not set
@@ -2090,6 +2106,7 @@ CONFIG_PACKAGE_trusted-firmware-a-mt7988-ram-ddr4=y
 # CONFIG_PACKAGE_mt76-test is not set
 # CONFIG_PACKAGE_objdump is not set
 # CONFIG_PACKAGE_patch is not set
+# CONFIG_PACKAGE_perf is not set
 # CONFIG_PACKAGE_pkgconf is not set
 # CONFIG_PACKAGE_tmon is not set
 # CONFIG_PACKAGE_trace-cmd is not set
@@ -2386,6 +2403,13 @@ CONFIG_PACKAGE_wireless-regdb=y
 # CONFIG_PACKAGE_gzdoom is not set
 # CONFIG_PACKAGE_sdl2-doom is not set
 # end of Games
+
+#
+# Kernel
+#
+# CONFIG_PACKAGE_vmlinux-btf is not set
+CONFIG_PACKAGE_vmlinux-btf-builtin=y
+# end of Kernel
 
 #
 # Kernel modules
@@ -3098,7 +3122,7 @@ CONFIG_PACKAGE_kmod-tun=y
 CONFIG_PACKAGE_kmod-udptunnel4=y
 CONFIG_PACKAGE_kmod-udptunnel6=y
 # CONFIG_PACKAGE_kmod-unix-diag is not set
-# CONFIG_PACKAGE_kmod-veth is not set
+CONFIG_PACKAGE_kmod-veth=y
 # CONFIG_PACKAGE_kmod-vrf is not set
 # CONFIG_PACKAGE_kmod-vxlan is not set
 # CONFIG_PACKAGE_kmod-wireguard is not set
@@ -5431,6 +5455,8 @@ CONFIG_PACKAGE_luci-mod-system=y
 # CONFIG_PACKAGE_luci-app-cpulimit is not set
 # CONFIG_PACKAGE_luci-app-crowdsec-firewall-bouncer is not set
 # CONFIG_PACKAGE_luci-app-csshnpd is not set
+CONFIG_PACKAGE_luci-app-dae=y
+# CONFIG_PACKAGE_luci-app-daed is not set
 # CONFIG_PACKAGE_luci-app-dawn is not set
 # CONFIG_PACKAGE_luci-app-dcwapd is not set
 # CONFIG_PACKAGE_luci-app-ddns is not set
@@ -5454,6 +5480,7 @@ CONFIG_PACKAGE_luci-app-firewall=y
 # CONFIG_PACKAGE_luci-app-gost is not set
 # CONFIG_PACKAGE_luci-app-hd-idle is not set
 # CONFIG_PACKAGE_luci-app-homeproxy is not set
+# CONFIG_PACKAGE_luci-app-honk is not set
 # CONFIG_PACKAGE_luci-app-https-dns-proxy is not set
 # CONFIG_PACKAGE_luci-app-ipsec-vpnd is not set
 # CONFIG_PACKAGE_luci-app-irqbalance is not set
@@ -5469,7 +5496,6 @@ CONFIG_PACKAGE_luci-app-firewall=y
 # CONFIG_PACKAGE_luci-app-microsocks is not set
 # CONFIG_PACKAGE_luci-app-minidlna is not set
 # CONFIG_PACKAGE_luci-app-modemband is not set
-# CONFIG_PACKAGE_luci-app-mosdns is not set
 # CONFIG_PACKAGE_luci-app-mosquitto is not set
 # CONFIG_PACKAGE_luci-app-msd_lite is not set
 # CONFIG_PACKAGE_luci-app-music-remote-center is not set
@@ -5636,6 +5662,7 @@ CONFIG_PACKAGE_luci-proto-ppp=y
 #
 CONFIG_PACKAGE_luci-lib-base=y
 # CONFIG_PACKAGE_luci-lib-chartjs is not set
+CONFIG_PACKAGE_luci-lib-daeuniverse=y
 # CONFIG_PACKAGE_luci-lib-httpclient is not set
 # CONFIG_PACKAGE_luci-lib-httpprotoutils is not set
 CONFIG_PACKAGE_luci-lib-ip=y
@@ -5696,6 +5723,8 @@ CONFIG_PACKAGE_default-settings-chn=y
 # CONFIG_PACKAGE_luci-i18n-base-yua is not set
 CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-base-zh-tw is not set
+CONFIG_PACKAGE_luci-i18n-daeuniverse-zh-cn=y
+# CONFIG_PACKAGE_luci-i18n-daeuniverse-zh-tw is not set
 # CONFIG_PACKAGE_luci-i18n-firewall-ar is not set
 # CONFIG_PACKAGE_luci-i18n-firewall-bg is not set
 # CONFIG_PACKAGE_luci-i18n-firewall-bn is not set
@@ -6196,8 +6225,8 @@ CONFIG_PACKAGE_knot-resolver_dnstap=y
 # CONFIG_PACKAGE_unbound-control-setup is not set
 # CONFIG_PACKAGE_unbound-daemon is not set
 # CONFIG_PACKAGE_unbound-host is not set
-# CONFIG_PACKAGE_v2ray-geoip is not set
-# CONFIG_PACKAGE_v2ray-geosite is not set
+CONFIG_PACKAGE_v2ray-geoip=y
+CONFIG_PACKAGE_v2ray-geosite=y
 # CONFIG_PACKAGE_wsdd2 is not set
 # CONFIG_PACKAGE_zonestitcher is not set
 # end of IP Addresses and Names
@@ -6618,6 +6647,7 @@ CONFIG_OPENVPN_openssl_ENABLE_SMALL=y
 CONFIG_PACKAGE_cgi-io=y
 # CONFIG_PACKAGE_clamav is not set
 # CONFIG_PACKAGE_cloudflared is not set
+CONFIG_PACKAGE_dae=y
 # CONFIG_PACKAGE_dufs is not set
 # CONFIG_PACKAGE_etebase is not set
 # CONFIG_PACKAGE_freshclam is not set
@@ -6628,6 +6658,7 @@ CONFIG_PACKAGE_cgi-io=y
 CONFIG_PACKAGE_haproxy=y
 # CONFIG_PACKAGE_halog is not set
 # CONFIG_PACKAGE_haproxy-nossl is not set
+# CONFIG_PACKAGE_honk is not set
 # CONFIG_PACKAGE_kcptun-client is not set
 # CONFIG_PACKAGE_kcptun-config is not set
 # CONFIG_PACKAGE_kcptun-server is not set
@@ -6687,6 +6718,7 @@ CONFIG_SING_BOX_BUILD_WIREGUARD=y
 # CONFIG_PACKAGE_squid is not set
 # CONFIG_PACKAGE_tinyproxy is not set
 # CONFIG_PACKAGE_trojan is not set
+# CONFIG_PACKAGE_tuic-client is not set
 # CONFIG_PACKAGE_tuic-server is not set
 CONFIG_PACKAGE_uhttpd=y
 # CONFIG_PACKAGE_uhttpd-mod-lua is not set
@@ -6962,9 +6994,9 @@ CONFIG_PACKAGE_iw=y
 # CONFIG_PACKAGE_nqptp is not set
 # CONFIG_PACKAGE_nut is not set
 # CONFIG_PACKAGE_obfs4proxy is not set
-# CONFIG_PACKAGE_odhcp6c is not set
+CONFIG_PACKAGE_odhcp6c=y
 # CONFIG_PACKAGE_odhcpd is not set
-# CONFIG_PACKAGE_odhcpd-ipv6only is not set
+CONFIG_PACKAGE_odhcpd-ipv6only=y
 # CONFIG_PACKAGE_ola is not set
 # CONFIG_PACKAGE_omcproxy is not set
 # CONFIG_PACKAGE_open-iscsi is not set
@@ -7103,8 +7135,12 @@ CONFIG_PACKAGE_tcping=y
 # CONFIG_PACKAGE_wifi-presence is not set
 # CONFIG_PACKAGE_wpan-tools is not set
 # CONFIG_PACKAGE_wwan is not set
+# CONFIG_PACKAGE_xdp-bench is not set
 # CONFIG_PACKAGE_xdp-filter is not set
+# CONFIG_PACKAGE_xdp-forward is not set
 # CONFIG_PACKAGE_xdp-loader is not set
+# CONFIG_PACKAGE_xdp-monitor is not set
+# CONFIG_PACKAGE_xdp-trafficgen is not set
 # CONFIG_PACKAGE_xdpdump is not set
 # CONFIG_PACKAGE_xinetd is not set
 CONFIG_PACKAGE_xray-core=y
@@ -7739,7 +7775,6 @@ CONFIG_PACKAGE_coreutils-timeout=y
 # CONFIG_PACKAGE_gammu is not set
 # CONFIG_PACKAGE_gawk is not set
 # CONFIG_PACKAGE_gddrescue is not set
-# CONFIG_PACKAGE_geo2txt is not set
 # CONFIG_PACKAGE_getopt is not set
 # CONFIG_PACKAGE_giflib-utils is not set
 # CONFIG_PACKAGE_gkermit is not set
@@ -8118,5 +8153,3 @@ CONFIG_PACKAGE_ucode-mod-lua=y
 # CONFIG_PACKAGE_fontconfig is not set
 # end of Font-Utils
 # end of Xorg
-
-CONFIG_OVERRIDE_PKGS="smartdns"
