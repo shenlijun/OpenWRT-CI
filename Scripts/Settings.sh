@@ -33,6 +33,9 @@ git clone https://github.com/daeuniverse/openwrt-packages package/dae-packages
 git clone --recurse-submodules https://github.com/daeuniverse/dae package/dae-packages/dae/src
 ##End of dae
 
+##Add x550 2.5G
+git clone https://github.com/shenlijun/openwrt-x550-nbase-t package/openwrt-x550-nbase-t  
+
 ##packages from the master branch
 wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
 
