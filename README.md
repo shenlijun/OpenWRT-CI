@@ -3,7 +3,7 @@
 
 包含[Passwall插件](https://github.com/Openwrt-Passwall/openwrt-passwall)、[dae插件](https://github.com/daeuniverse/openwrt-packages)以及OpenVPN插件，支持IPv6。
 
-# 长期支持设备：
+#### 长期支持设备：
     x64：支持虚拟机，支持Intel X550网卡NBASE-T，可自动协商被隐藏的2.5G/5G
     Cudy TR3000 256m：支持F50等设备
     GL-MT3600BE：支持F50等设备
