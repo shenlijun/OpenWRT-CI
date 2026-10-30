@@ -16,8 +16,6 @@
 
 ### 目录简要说明：
 
-Depends.txt——环境依赖列表
-
 Scripts——自定义脚本
 
 Config——自定义配置
