@@ -85,7 +85,7 @@ jobs:
         run: |
           cd ./owrt
 
-          $GITHUB_WORKSPACE/Scripts/Settings.sh
+          $GITHUB_WORKSPACE/Scripts/ExtraSettings.sh
           
           rm -rf ./tmp* ./.config*
           cat $GITHUB_WORKSPACE/Config/$OWRT_CONFIG.txt >> .config
