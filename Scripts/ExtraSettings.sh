@@ -25,13 +25,15 @@ rm -rf feeds/packages/lang/golang
 git clone https://github.com/kenzok8/golang -b 1.27 feeds/packages/lang/golang
 ## End of golang
 
-##dae
+##dae/honk
 rm -rf feeds/luci/applications/luci-app-dae
+rm -rf feeds/luci/applications/luci-app-honk
 rm -rf feeds/packages/net/dae
-rm -rf feeds/packages/net/daed
+rm -rf feeds/packages/net/honk
 git clone https://github.com/daeuniverse/openwrt-packages package/dae-packages
 git clone --recurse-submodules https://github.com/daeuniverse/dae package/dae-packages/dae/src
-##End of dae
+git clone --recurse-submodules https://github.com/daeuniverse/honk package/dae-packages/honk/src
+##End of dae/honk
 
 ##Add x550 2.5G
 git clone https://github.com/shenlijun/openwrt-x550-nbase-t package/openwrt-x550-nbase-t  
