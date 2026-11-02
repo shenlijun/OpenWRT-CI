@@ -1,7 +1,7 @@
 # 源自[VIKINGYFY的OpenWRT-CI](https://github.com/VIKINGYFY/OpenWRT-CI)
-自用云编译[ImmortalWrt固件](https://github.com/immortalwrt/immortalwrt)
+自用云编译精简[ImmortalWrt固件](https://github.com/immortalwrt/immortalwrt)
 
-包含[Passwall插件](https://github.com/Openwrt-Passwall/openwrt-passwall)、[honk插件](https://github.com/daeuniverse/openwrt-packages)以及OpenVPN插件，支持IPv6。
+仅包含[Passwall插件](https://github.com/Openwrt-Passwall/openwrt-passwall)、[honk插件](https://github.com/daeuniverse/openwrt-packages)以及OpenVPN插件，支持IPv6。
 
 ### 长期支持设备：
    **x64：** 支持虚拟机，支持[Intel X550网卡NBASE-T](https://github.com/shenlijun/openwrt-x550-nbase-t)，可自动协商被隐藏的2.5G/5G
