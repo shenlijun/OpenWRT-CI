@@ -1,5 +1,5 @@
 # 源自[VIKINGYFY的OpenWRT-CI](https://github.com/VIKINGYFY/OpenWRT-CI)
-自用云编译精简[ImmortalWrt固件](https://github.com/immortalwrt/immortalwrt)
+自用精简[ImmortalWrt固件](https://github.com/immortalwrt/immortalwrt)，每周六上午自动编译。
 
 仅包含[Passwall插件](https://github.com/Openwrt-Passwall/openwrt-passwall)、[honk插件](https://github.com/daeuniverse/openwrt-packages)以及OpenVPN插件，支持IPv6。
 
