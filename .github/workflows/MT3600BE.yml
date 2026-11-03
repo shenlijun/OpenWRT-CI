@@ -2,9 +2,9 @@
 name: MT3600BE
 
 on:
-  #自动编译：每天2:23点
+  #自动编译：每周六10:23点
   schedule:
-    - cron: 23 18 * * *
+    - cron: 23 2 * * 6
   #手动编译
   workflow_dispatch:
 
