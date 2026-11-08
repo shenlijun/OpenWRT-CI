@@ -31,7 +31,7 @@ rm -rf feeds/luci/applications/luci-app-dae
 rm -rf feeds/luci/applications/luci-app-honk
 rm -rf feeds/packages/net/dae
 rm -rf feeds/packages/net/honk
-if [ -d "dae-packages" ]; then
+if [ -d "package/dae-packages" ]; then
     git -C package/dae-packages pull
     git -C package/dae-packages/dae/src pull
     git -C package/dae-packages/honk/src pull
