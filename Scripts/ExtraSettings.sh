@@ -106,7 +106,6 @@ fi
 ##End of dae/honk
 
 ##Add x550 2.5G
-rm -rf feeds/luci/applications/luci-app-passwall
 if [ -d "package/openwrt-x550-nbase-t" ]; then
     git -C package/openwrt-x550-nbase-t pull
 else
