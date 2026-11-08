@@ -1,23 +1,24 @@
 #!/bin/bash
 
-#Use kernel 6.1
-#sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.1/' target/linux/x86/Makefile
-
-#Use kernel 5.10
-#sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/' target/linux/ramips/Makefile
-
 # Modify default theme
 sed -i 's/bootstrap/argon/' feeds/luci/modules/luci-base/root/etc/config/luci
 sed -i 's/bootstrap/argon/' feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/argon/' feeds/luci/collections/luci-light/Makefile
 
-
 ##Openwrt-Passwall
 rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan-plus,tuic-client,v2ray-plugin,xray-plugin,geoview,shadow-tls}
-git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+if [ -d "package/passwall-packages" ]; then
+    git -C package/passwall-packages pull
+else
+    git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+fi
 
 rm -rf feeds/luci/applications/luci-app-passwall
-git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
+if [ -d "package/passwall-luci" ]; then
+    git -C package/passwall-luci pull
+else
+    git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
+fi
 ##End of Openwrt-Passwall
 
 ##golang
@@ -30,9 +31,15 @@ rm -rf feeds/luci/applications/luci-app-dae
 rm -rf feeds/luci/applications/luci-app-honk
 rm -rf feeds/packages/net/dae
 rm -rf feeds/packages/net/honk
-git clone https://github.com/daeuniverse/openwrt-packages package/dae-packages
-git clone --recurse-submodules https://github.com/daeuniverse/dae package/dae-packages/dae/src
-git clone --recurse-submodules https://github.com/daeuniverse/honk package/dae-packages/honk/src
+if [ -d "dae-packages" ]; then
+    git -C package/dae-packages pull
+    git -C package/dae-packages/dae/src pull
+    git -C package/dae-packages/honk/src pull
+else
+    git clone https://github.com/daeuniverse/openwrt-packages package/dae-packages
+    git clone --recurse-submodules https://github.com/daeuniverse/dae package/dae-packages/dae/src
+    git clone --recurse-submodules https://github.com/daeuniverse/honk package/dae-packages/honk/src
+fi
 # Prepare host Rust from the checked-out honk source requirements.
 # Isolate strict error handling and upstream pins from the rest of this script.
 (
@@ -99,7 +106,12 @@ fi
 ##End of dae/honk
 
 ##Add x550 2.5G
-git clone https://github.com/shenlijun/openwrt-x550-nbase-t package/openwrt-x550-nbase-t  
+rm -rf feeds/luci/applications/luci-app-passwall
+if [ -d "package/openwrt-x550-nbase-t" ]; then
+    git -C package/openwrt-x550-nbase-t pull
+else
+    git clone https://github.com/shenlijun/openwrt-x550-nbase-t package/openwrt-x550-nbase-t  
+fi
 
 ##packages from the master branch
 wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
@@ -121,14 +133,3 @@ wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
 
 rm master.tar.gz
 ##End of packages from the master branch
-
-##kernel from the master branch
-#wget https://github.com/immortalwrt/immortalwrt/archive/refs/heads/master.tar.gz
-#rm -rf target
-#tar -xzf master.tar.gz -C ./ --strip=1 "immortalwrt-master/target"
-#rm master.tar.gz
-##End of kernel from the master branch
-
-#mkdir -p staging_dir/host/bin
-#ln -sf /usr/bin/go staging_dir/host/bin/go
-#ln -sf /usr/bin/gofmt staging_dir/host/bin/gofmt
