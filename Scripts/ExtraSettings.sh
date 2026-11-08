@@ -8,16 +8,16 @@ sed -i 's/bootstrap/argon/' feeds/luci/collections/luci-light/Makefile
 ##Openwrt-Passwall
 rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan-plus,tuic-client,v2ray-plugin,xray-plugin,geoview,shadow-tls}
 if [ -d "package/passwall-packages" ]; then
-    git -C package/passwall-packages pull
+  git -C package/passwall-packages pull
 else
-    git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+  git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 fi
 
 rm -rf feeds/luci/applications/luci-app-passwall
 if [ -d "package/passwall-luci" ]; then
-    git -C package/passwall-luci pull
+  git -C package/passwall-luci pull
 else
-    git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
+  git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
 fi
 ##End of Openwrt-Passwall
 
@@ -32,13 +32,13 @@ rm -rf feeds/luci/applications/luci-app-honk
 rm -rf feeds/packages/net/dae
 rm -rf feeds/packages/net/honk
 if [ -d "package/dae-packages" ]; then
-    git -C package/dae-packages pull
-    git -C package/dae-packages/dae/src pull
-    git -C package/dae-packages/honk/src pull
+  git -C package/dae-packages pull
+  git -C package/dae-packages/dae/src pull
+  git -C package/dae-packages/honk/src pull
 else
-    git clone https://github.com/daeuniverse/openwrt-packages package/dae-packages
-    git clone --recurse-submodules https://github.com/daeuniverse/dae package/dae-packages/dae/src
-    git clone --recurse-submodules https://github.com/daeuniverse/honk package/dae-packages/honk/src
+  git clone https://github.com/daeuniverse/openwrt-packages package/dae-packages
+  git clone --recurse-submodules https://github.com/daeuniverse/dae package/dae-packages/dae/src
+  git clone --recurse-submodules https://github.com/daeuniverse/honk package/dae-packages/honk/src
 fi
 # Prepare host Rust from the checked-out honk source requirements.
 # Isolate strict error handling and upstream pins from the rest of this script.
@@ -107,9 +107,9 @@ fi
 
 ##Add x550 2.5G
 if [ -d "package/openwrt-x550-nbase-t" ]; then
-    git -C package/openwrt-x550-nbase-t pull
+  git -C package/openwrt-x550-nbase-t pull
 else
-    git clone https://github.com/shenlijun/openwrt-x550-nbase-t package/openwrt-x550-nbase-t  
+  git clone https://github.com/shenlijun/openwrt-x550-nbase-t package/openwrt-x550-nbase-t
 fi
 
 ##packages from the master branch
