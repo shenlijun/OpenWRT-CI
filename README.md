@@ -14,7 +14,7 @@
    
 &emsp;&emsp;**GL-MT3600BE：** 支持F50等设备
 
-&emsp;&emsp;#### PVE8.0以上使用EFI，需要关闭安全启动，且磁盘镜像不能放在zfs上，在zfs上不能使用EFI
+#### &emsp;&emsp;PVE8.0以上使用EFI，需要关闭安全启动，且磁盘镜像不能放在zfs上，在zfs上不能使用EFI
 
 &emsp;&emsp;![image](https://github.com/shenlijun/OpenWRT-CI/blob/main/PVE.png)
 
