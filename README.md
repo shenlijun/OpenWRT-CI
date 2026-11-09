@@ -8,15 +8,15 @@
 
 
 ### 长期支持设备：
-   **x64：** 支持虚拟机，支持[Intel X550网卡NBASE-T](https://github.com/shenlijun/openwrt-x550-nbase-t)，可自动协商被隐藏的2.5G/5G
+&emsp;&emsp;**x64：** 支持虚拟机，支持[Intel X550网卡NBASE-T](https://github.com/shenlijun/openwrt-x550-nbase-t)，可自动协商被隐藏的2.5G/5G
    
-   **Cudy TR3000 256m：** 支持F50等设备
+&emsp;&emsp;**Cudy TR3000 256m：** 支持F50等设备
    
-   **GL-MT3600BE：** 支持F50等设备
+&emsp;&emsp;**GL-MT3600BE：** 支持F50等设备
 
 #### PVE8.0以上使用EFI，需要关闭安全启动，且磁盘镜像不能放在zfs上，在zfs上不能使用EFI
 
-![image](https://github.com/shenlijun/OpenWRT-CI/blob/main/PVE.png)
+&emsp;&emsp;![image](https://github.com/shenlijun/OpenWRT-CI/blob/main/PVE.png)
 
 ### 目录简要说明：
 
