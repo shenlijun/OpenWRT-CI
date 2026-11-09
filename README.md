@@ -1,7 +1,10 @@
 # 源自[VIKINGYFY的OpenWRT-CI](https://github.com/VIKINGYFY/OpenWRT-CI)
 自用精简[ImmortalWrt固件](https://github.com/immortalwrt/immortalwrt)，每周六上午自动编译。
 
-仅包含[Passwall插件](https://github.com/Openwrt-Passwall/openwrt-passwall)、[honk插件](https://github.com/daeuniverse/openwrt-packages)以及OpenVPN插件，支持IPv6。
+仅包含[AdGuard Home插件](https://github.com/AdguardTeam/AdGuardHome)、[honk插件](https://github.com/daeuniverse/openwrt-packages)以及[OpenVPN插件](https://github.com/OpenVPN/openvpn)，支持IPv6。
+<small>关闭DNSMasq的DNS功能（端口设为0），AdGuard Home接管53端口，用honk分流作为其上游（DNS绑定到非53端口），可实现自定义去广告。
+如使用DNSMasq的DHCP功能，需要lan口加入DHCP选项下发本机为DNS服务器</small>
+
 
 ### 长期支持设备：
    **x64：** 支持虚拟机，支持[Intel X550网卡NBASE-T](https://github.com/shenlijun/openwrt-x550-nbase-t)，可自动协商被隐藏的2.5G/5G
