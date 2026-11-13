@@ -6,19 +6,19 @@ sed -i 's/bootstrap/argon/' feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/argon/' feeds/luci/collections/luci-light/Makefile
 
 ##Openwrt-Passwall
-rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan-plus,tuic-client,v2ray-plugin,xray-plugin,geoview,shadow-tls}
-if [ -d "package/passwall-packages" ]; then
-  git -C package/passwall-packages pull
-else
-  git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
-fi
+#rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan-plus,tuic-client,v2ray-plugin,xray-plugin,geoview,shadow-tls}
+#if [ -d "package/passwall-packages" ]; then
+#  git -C package/passwall-packages pull
+#else
+#  git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+#fi
 
-rm -rf feeds/luci/applications/luci-app-passwall
-if [ -d "package/passwall-luci" ]; then
-  git -C package/passwall-luci pull
-else
-  git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
-fi
+#rm -rf feeds/luci/applications/luci-app-passwall
+#if [ -d "package/passwall-luci" ]; then
+#  git -C package/passwall-luci pull
+#else
+#  git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
+#fi
 ##End of Openwrt-Passwall
 
 ##golang
@@ -113,7 +113,7 @@ else
 fi
 
 ##packages from the master branch
-wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
+#wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
 
 #Rust
 #tar -xzf master.tar.gz -C feeds/packages/lang/ --strip=2 "packages-master/lang/rust"
@@ -130,5 +130,5 @@ wget https://github.com/immortalwrt/packages/archive/refs/heads/master.tar.gz
 #rm -rf ./feeds/packages/net/openvpn
 #tar -xzf master.tar.gz -C feeds/packages/net/ --strip=2 "packages-master/net/openvpn"
 
-rm master.tar.gz
+#rm master.tar.gz
 ##End of packages from the master branch
