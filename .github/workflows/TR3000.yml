@@ -3,10 +3,13 @@ name: TR3000
 
 on:
   #自动编译：每周六11:26
-  schedule:
-    - cron: 26 3 * * 6
+  #schedule:
+  #  - cron: 26 3 * * 6
   #手动编译
   workflow_dispatch:
+  #Honk上游改动触发
+  repository_dispatch:
+    types: [honk-upstream-update]
 
 #CI权限
 permissions: write-all
