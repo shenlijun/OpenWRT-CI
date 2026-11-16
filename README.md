@@ -1,5 +1,5 @@
 # 源自[VIKINGYFY的OpenWRT-CI](https://github.com/VIKINGYFY/OpenWRT-CI)
-&emsp;&emsp;自用精简[ImmortalWrt固件](https://github.com/immortalwrt/immortalwrt)，每周六上午自动编译。
+&emsp;&emsp;自用精简[ImmortalWrt固件](https://github.com/immortalwrt/immortalwrt)，随上游honk的tag更新自动编译。
 
 &emsp;&emsp;仅包含[AdGuard Home](https://github.com/AdguardTeam/AdGuardHome)、[honk](https://github.com/daeuniverse/openwrt-packages)以及[WireGuard](https://github.com/orgs/WireGuard/)，支持IPv6。<br>
 &emsp;&emsp;&emsp;&emsp;<sub>关闭DNSMasq的DNS功能（端口设为0），AdGuard Home接管53端口，用honk分流作为其上游（DNS绑定到非53端口），可实现自定义去广告</sub><br>
