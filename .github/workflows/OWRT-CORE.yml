@@ -42,7 +42,8 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          sudo -E apt -yqq purge mysql-server
+          sudo -E apt -yqq purge android* azure* dotnet* firefox* ghc* golang* google* libclang* libgl1* lld* llvm* \
+                            microsoft* mongodb* mono* mysql* nodejs* openjdk* php* postgresql* powershell* snap* temurin* yarn* zulu*
           sudo -E apt -yqq update
           sudo -E apt -yqq full-upgrade
           sudo -E apt -yqq autoremove --purge
