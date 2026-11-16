@@ -3,10 +3,13 @@ name: X64
 
 on:
   #自动编译：每周六9:31
-  schedule:
-    - cron: 31 1 * * 6
+  #schedule:
+  #  - cron: 31 1 * * 6
   #手动编译
   workflow_dispatch:
+  #Honk上游改动触发
+  repository_dispatch:
+    types: [honk-upstream-update]
 
 #CI权限
 permissions: write-all
