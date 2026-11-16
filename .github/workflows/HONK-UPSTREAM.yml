@@ -1,0 +1,74 @@
+name: Watch Honk tags
+
+on:
+  schedule:
+    - cron: '7 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: honk-upstream-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout OpenWRT-CI
+        uses: actions/checkout@v4
+
+      - name: Detect new Honk tags and trigger builds
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          export LC_ALL=C
+
+          state_branch=ci-state/honk-upstream
+          state_ref="refs/heads/$state_branch"
+          tag_file=honk-tags.txt
+          snapshot="$(mktemp)"
+          trap 'rm -f "$snapshot"' EXIT
+
+          git ls-remote --tags --refs https://github.com/daeuniverse/honk.git \
+            | cut -f2 \
+            | sed 's#^refs/tags/##' \
+            | sort -u > "$snapshot"
+
+          if git ls-remote --exit-code --heads origin "$state_ref" >/dev/null; then
+            git fetch --no-tags origin "$state_ref"
+            git switch --detach FETCH_HEAD
+          else
+            status=$?
+            [[ "$status" -eq 2 ]] || exit "$status"
+            git switch --orphan "$state_branch"
+          fi
+
+          if [[ -f "$tag_file" ]]; then
+            new_tags="$(comm -13 "$tag_file" "$snapshot")"
+
+            if [[ -n "$new_tags" ]]; then
+              printf 'New Honk tags:\n%s\n' "$new_tags"
+              gh api --method POST "repos/$GITHUB_REPOSITORY/dispatches" \
+                -f event_type=honk-upstream-update
+            else
+              echo 'No new Honk tags.'
+            fi
+          else
+            echo 'Recording the initial Honk tag list.'
+          fi
+
+          cp "$snapshot" "$tag_file"
+          git rm --ignore-unmatch -- honk-commit.txt luci-commit.txt
+          git add -- "$tag_file"
+
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' \
+                -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+                commit -m 'Record Honk upstream tags'
+            git push origin "HEAD:$state_ref"
+          fi
