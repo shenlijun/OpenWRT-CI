@@ -22,6 +22,7 @@ sed -i 's/bootstrap/argon/' feeds/luci/collections/luci-light/Makefile
 ##End of Openwrt-Passwall
 
 ##golang
+sudo snap install go
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/kenzok8/golang -b 1.27 feeds/packages/lang/golang
 ## End of golang
